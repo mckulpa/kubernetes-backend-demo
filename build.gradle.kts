@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
 	id("org.springframework.boot") version "3.0.6"
@@ -27,6 +28,10 @@ tasks.withType<KotlinCompile> {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "17"
 	}
+}
+
+tasks.getByName<BootBuildImage>("bootBuildImage") {
+	 imageName.set("mckulpa/${project.name}:${project.version}")
 }
 
 tasks.withType<Test> {
