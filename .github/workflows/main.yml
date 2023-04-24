@@ -17,11 +17,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Log in to Docker Hub
-        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
       - name: Build and publish Docker image
         run: ./gradlew bootBuildImage --publishImage
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
