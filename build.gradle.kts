@@ -31,7 +31,13 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.getByName<BootBuildImage>("bootBuildImage") {
-	 imageName.set("mckulpa/${project.name}:${project.version}")
+	imageName.set("mckulpa/${project.name}:${project.version}")
+	docker {
+		publishRegistry {
+			username.set(System.getenv("DOCKER_USERNAME"))
+			password.set(System.getenv("DOCKER_PASSWORD"))
+		}
+	}
 }
 
 tasks.withType<Test> {
