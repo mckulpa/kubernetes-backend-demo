@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  dockerPush:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and publish Docker image
+        run: ./gradlew bootBuildImage --publishImage
