@@ -1,0 +1,8 @@
+server:
+  port: 8080
+
+external:
+  identity:
+    url: "http://localhost:8081/v1"
+  naming:
+    url: "http://localhost:8082/v1"
