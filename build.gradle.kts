@@ -23,6 +23,7 @@ subprojects {
 	}
 
 	group = "com.mckulpa.demo.kubernetes"
+	version = "0.9.0"
 	java.sourceCompatibility = JavaVersion.VERSION_17
 
 	dependencies {
