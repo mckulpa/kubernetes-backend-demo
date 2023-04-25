@@ -1,1 +1,4 @@
-rootProject.name = "kubernetes-backend-demo"
+rootProject.name = "kubernetes-demo"
+include("api-gateway")
+include("identity")
+include("naming")

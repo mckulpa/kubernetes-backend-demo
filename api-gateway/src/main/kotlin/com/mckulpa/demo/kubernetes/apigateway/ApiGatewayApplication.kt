@@ -1,11 +1,11 @@
-package com.mckulpa.demo.kubernetes.backend
+package com.mckulpa.demo.kubernetes.apigateway
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class KubernetesBackendDemoApplication
+class NamingApplication
 
 fun main(args: Array<String>) {
-	runApplication<KubernetesBackendDemoApplication>(*args)
+	runApplication<NamingApplication>(*args)
 }
