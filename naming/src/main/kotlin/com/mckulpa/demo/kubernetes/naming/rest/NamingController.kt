@@ -19,8 +19,7 @@ class NamingController {
     fun createFirstname(): String {
         val name = faker.name().firstName()
         log.info("Generated new Firstname: $name")
-//        return name
-        return "John" // Bug!
+        return name
     }
 
     @PostMapping("/v1/lastname")
