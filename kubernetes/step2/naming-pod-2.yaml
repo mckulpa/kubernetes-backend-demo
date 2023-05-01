@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: naming2
+  labels:
+    app: naming
+spec:
+  containers:
+    - name: naming-ctr
+      image: mckulpa/k8s-demo-naming:1.0.0
+      ports:
+        - containerPort: 8082

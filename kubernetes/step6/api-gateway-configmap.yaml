@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-gateway-configmap
+data:
+  IDENTITY_URL: "http://identity-clusterip:8181/v1"
+  NAMING_URL: "http://naming-clusterip:8182/v1"
