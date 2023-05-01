@@ -22,6 +22,6 @@ using `spring.config.location`. As all Spring properties this can be set in mult
 Try viewing the mounted `application.yaml` file contents inside a running pod.
 
 Notice that for Spring it is also possible to use:
-- Spring Cloud Kubernetes library to read properties from ConfigMap
+- Spring Cloud Kubernetes library to read configuration from ConfigMap
 (https://docs.spring.io/spring-cloud-kubernetes/docs/current/reference/html/)
 - Spring Config Server to read configuration from a repository (https://spring.io/guides/gs/centralized-configuration/)
