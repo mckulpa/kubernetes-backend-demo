@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway-deploy
+  labels:
+    app: api-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+        - name: api-gateway-pod
+          image: mckulpa/k8s-demo-api-gateway:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_CONFIG_LOCATION
+              value: "/app/config/application.yaml"
+          volumeMounts:
+            - name: api-gateway-config-volume
+              mountPath: /app/config
+              readOnly: true
+      volumes:
+        - name: api-gateway-config-volume
+          configMap:
+            name: api-gateway-configmap
+            items:
+              - key: application.yaml
+                path: application.yaml
