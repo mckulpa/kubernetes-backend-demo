@@ -21,3 +21,5 @@ Which `metadata.labels` must match the `selector.matchLabels`?
 Notice that services still work properly despite deployment having the same label as deployment. Traffic is routed to pods, not deployments.
 
 Notice ReplicaSet is automatically created along Pods and Deployment
+
+#TODO Deployment update and rollback 

@@ -1,2 +1,7 @@
 server:
   port: 8082
+
+management:
+  health:
+    probes:
+      enabled: true # enables /actuator/health/liveness and /actuator/health/readiness endpoints (by default they are enabled but only when running in Kubernetes)

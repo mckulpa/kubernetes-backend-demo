@@ -4,11 +4,16 @@
 
     brew install minikube
     brew install kubectl
-    brew install k9s
 
 ## Cluster creation
 
     minikube start --nodes 3
+
+For some exercises running a tunnel is also necessary - run this in a separate terminal window and leave it running in the background.
+
+    minikube tunnel
+
+This will route `localhost` traffic to your Minikube cluster.
 
 ### Dealing with registry access error
 
@@ -39,6 +44,14 @@ Restart Minikube (stopping is not necessary)
 
 Above example will fix only `registry.k8s.io` registry, so you may want to repeat this for other registries you want to
 connect to (also change the default `5000` port to whatever port this registry is using).
+
+## Installation of additional tools
+
+    brew install k9s
+    brew install stern
+    brew install derailed/popeye/popeye
+
+Please note that k9s has popeye integrated (type `:popeye` in k9s).
 
 ## Cluster deletion
 

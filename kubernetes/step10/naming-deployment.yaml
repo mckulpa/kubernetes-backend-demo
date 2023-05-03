@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: naming-deploy
+  labels:
+    app: naming
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: naming
+  template:
+    metadata:
+      labels:
+        app: naming
+    spec:
+      serviceAccountName: basic
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10000
+        runAsGroup: 10000
+      terminationGracePeriodSeconds: 30
+      startupProbe:
+        httpGet:
+          path: /health
+          port: http
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        failureThreshold: 12
+      readinessProbe:
+        httpGet:
+          path: /ready
+          port: http
+        periodSeconds: 10
+        failureThreshold: 1
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: http
+        periodSeconds: 10
+        failureThreshold: 1
+      containers:
+        - name: naming-pod
+          image: mckulpa/k8s-demo-naming:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8082
+          resources:
+            requests:
+              cpu: 200m
+              memory: 512Mi
+            limits:
+              cpu: 500m
+              memory: 1024Mi

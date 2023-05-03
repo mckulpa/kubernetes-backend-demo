@@ -23,11 +23,12 @@ subprojects {
 	}
 
 	group = "com.mckulpa.demo.kubernetes"
-	version = "1.0.0"
+	version = "1.1.0"
 	java.sourceCompatibility = JavaVersion.VERSION_17
 
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter-web")
+		implementation("org.springframework.boot:spring-boot-starter-actuator")
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
 		testImplementation("org.springframework.boot:spring-boot-starter-test")
