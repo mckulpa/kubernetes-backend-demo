@@ -53,8 +53,8 @@ Examples (`naming` host and port used as an example):
     curl -X POST localhost:8082/availability/liveness -H 'Content-Type: text/plain' -d 'BROKEN'
     curl -X POST localhost:8082/availability/liveness -H 'Content-Type: text/plain' -d 'CORRECT'
 
-    curl -X POST localhost:8082/availability/readiness -H 'Content-Type: text/plain' -d 'BROKEN'
-    curl -X POST localhost:8082/availability/readiness -H 'Content-Type: text/plain' -d 'CORRECT'
+    curl -X POST localhost:8082/availability/readiness -H 'Content-Type: text/plain' -d 'REFUSING_TRAFFIC'
+    curl -X POST localhost:8082/availability/readiness -H 'Content-Type: text/plain' -d 'ACCEPTING_TRAFFIC'
 
     curl -X GET localhost:8082/actuator/health/liveness
     curl -X GET localhost:8082/actuator/health/readiness

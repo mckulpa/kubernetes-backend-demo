@@ -23,12 +23,18 @@ subprojects {
 	}
 
 	group = "com.mckulpa.demo.kubernetes"
-	version = "1.1.0"
+	version = "1.2.0"
 	java.sourceCompatibility = JavaVersion.VERSION_17
 
+	ext["jakarta-servlet.version"] = "5.0.0"
+
 	dependencies {
-		implementation("org.springframework.boot:spring-boot-starter-web")
+		implementation("org.springframework.boot:spring-boot-starter-web") {
+			exclude("org.springframework.boot", "spring-boot-starter-tomcat")
+		}
 		implementation("org.springframework.boot:spring-boot-starter-actuator")
+		implementation("org.springframework.boot:spring-boot-starter-jetty")
+
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
 		testImplementation("org.springframework.boot:spring-boot-starter-test")

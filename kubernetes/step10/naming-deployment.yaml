@@ -20,28 +20,9 @@ spec:
         runAsUser: 10000
         runAsGroup: 10000
       terminationGracePeriodSeconds: 30
-      startupProbe:
-        httpGet:
-          path: /health
-          port: http
-        initialDelaySeconds: 10
-        periodSeconds: 10
-        failureThreshold: 12
-      readinessProbe:
-        httpGet:
-          path: /ready
-          port: http
-        periodSeconds: 10
-        failureThreshold: 1
-      livenessProbe:
-        httpGet:
-          path: /health
-          port: http
-        periodSeconds: 10
-        failureThreshold: 1
       containers:
         - name: naming-pod
-          image: mckulpa/k8s-demo-naming:1.0.0
+          image: mckulpa/k8s-demo-naming:1.1.0
           imagePullPolicy: Always
           ports:
             - name: http
@@ -53,3 +34,22 @@ spec:
             limits:
               cpu: 500m
               memory: 1024Mi
+          startupProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: http
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            failureThreshold: 30
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: http
+            periodSeconds: 10
+            failureThreshold: 1
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: http
+            periodSeconds: 10
+            failureThreshold: 1
