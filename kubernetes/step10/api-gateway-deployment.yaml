@@ -22,7 +22,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - name: api-gateway-pod
-          image: mckulpa/k8s-demo-api-gateway:1.1.0
+          image: mckulpa/k8s-demo-api-gateway:1.2.0
           imagePullPolicy: Always
           ports:
             - name: http
