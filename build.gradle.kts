@@ -26,7 +26,7 @@ subprojects {
 	version = "1.2.0"
 	java.sourceCompatibility = JavaVersion.VERSION_17
 
-	ext["jakarta-servlet.version"] = "5.0.0"
+	ext["jakarta-servlet.version"] = "5.0.0" // fixes application startup issue on Jetty: https://stackoverflow.com/questions/74946784/java-lang-classnotfoundexception-jakarta-servlet-http-httpsessioncontext-with-s
 
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter-web") {
