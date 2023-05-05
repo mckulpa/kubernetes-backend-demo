@@ -13,7 +13,7 @@ For some exercises running a tunnel is also necessary - run this in a separate t
 
     minikube tunnel
 
-This will route `localhost` traffic to your Minikube cluster.
+This will route `localhost` traffic to your Minikube cluster. Running a tunnel is necessary only for macOS - on Linux you should be fine with using Minikube IP (run `minikube ip` in bash or just check IP of the nodes) to communicate with the cluster.
 
 ### Dealing with registry access error
 
@@ -50,6 +50,7 @@ connect to (also change the default `5000` port to whatever port this registry i
     brew install k9s
     brew install stern
     brew install derailed/popeye/popeye
+    brew install helm
 
 Please note that k9s has popeye integrated (type `:popeye` in k9s).
 
@@ -58,6 +59,7 @@ Please note that k9s has popeye integrated (type `:popeye` in k9s).
     minikube delete
 
 # Azure
+
     brew install azure-cli
     brew install Azure/kubelogin/kubelogin
     az login --tenant YOUR_TENANT_ID
