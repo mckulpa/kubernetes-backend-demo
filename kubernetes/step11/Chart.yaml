@@ -1,4 +1,0 @@
-apiVersion: v2 # Helm API version - this is a correct API version for Helm 3!
-name: kubernetes-demo
-appVersion: 1.2.0 # Application version
-version: 0.1.0 # Chart version - can stay the same even when appVersion changes as long as Helm structure and values remain the same
