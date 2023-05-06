@@ -6,20 +6,16 @@ In order to reduce repetition and ease maintenance we can use definitions in `_h
 
 Notice direct `{{ .Release.Name }}` usage on `ingress.yaml` as well as using a custom template definition (`{{ include "api-gateway.name" . }}`) in `api-gateway-deployment.yaml`.
 
+Install two releases in one namespace:
+
+     helm install dev kubernetes-demo-chart
+     helm install prod kubernetes-demo-chart
+
+Test both releases (notice release name was included in ingress path):
+
+    curl -X POST localhost/dev/v1/person
+    curl -X POST localhost/prod/v1/person
+
 ## Other
 
-Notice that even though definitions in `_helpers.tpl` file are accessible globally they are resolved for each sub-chart,
-so in `api-gateway-configmap.yaml` we cannot simply use:
-
-    external.identity.url: "http://{{ include "identity.name" . }}:8181/v1"
-    external.naming.url: "http://{{ include "naming.name" . }}:8182/v1"
-
-It would install correctly, but it would be resolved to:
-
-    external.identity.url: "http://kubernetes-demo-api-gateway:8181/v1"
-    external.naming.url: "http://kubernetes-demo-api-gateway:8182/v1"                                                                                       │
-                                                                      
-Instead of:
-
-    external.identity.url: "http://kubernetes-demo-identity:8181/v1"
-    external.naming.url: "http://kubernetes-demo-naming:8182/v1"             
+Notice that definitions in `_helpers.tpl` should have names scoped to sub-chart to avoid naming conflicts.

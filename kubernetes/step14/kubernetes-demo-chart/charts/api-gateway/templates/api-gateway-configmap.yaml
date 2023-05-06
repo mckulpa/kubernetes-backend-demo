@@ -4,5 +4,5 @@ metadata:
   name: {{ include "api-gateway.name" . }}-configmap
 data:
   application.yaml: |
-    external.identity.url: "http://{{ include "identity.name" . }}:8181/v1"
-    external.naming.url: "http://{{ include "naming.name" . }}:8182/v1"
+    external.identity.url: "http://{{ .Release.Name }}-identity:8181/v1"
+    external.naming.url: "http://{{ .Release.Name }}-naming:8182/v1"

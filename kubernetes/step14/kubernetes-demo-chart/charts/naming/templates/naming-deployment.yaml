@@ -14,14 +14,14 @@ spec:
       labels:
         app: {{ include "naming.name" . }}
     spec:
-      serviceAccountName: {{ include "common.basic-service-account-name" . }}
+      serviceAccountName: {{ .Release.Name }}-basic
       securityContext:
         runAsNonRoot: true
         runAsUser: 10000
         runAsGroup: 10000
       terminationGracePeriodSeconds: 30
       containers:
-        - name: {{ include "naming.name" . }}-pod
+        - name: {{ include "naming.name" . }}
           image: mckulpa/k8s-demo-naming:1.2.0
           imagePullPolicy: Always
           ports:

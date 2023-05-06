@@ -14,7 +14,7 @@ spec:
       labels:
         app: {{ include "identity.name" . }}
     spec:
-      serviceAccountName: {{ include "common.basic-service-account-name" . }}
+      serviceAccountName: {{ .Release.Name }}-basic
       securityContext:
         runAsNonRoot: true
         runAsUser: 10000
