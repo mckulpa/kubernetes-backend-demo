@@ -1,0 +1,9 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "identity.name" . }}-disruption-budget
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: {{ include "identity.name" . }}

@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "naming.name" . }}
+  labels:
+    app: {{ include "naming.name" . }}
+spec:
+  replicas: {{ .Values.global.replicas }}
+  selector:
+    matchLabels:
+      app: {{ include "naming.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "naming.name" . }}
+    spec:
+      serviceAccountName: {{ include "common.basic-service-account-name" . }}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10000
+        runAsGroup: 10000
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: {{ include "naming.name" . }}-pod
+          image: mckulpa/k8s-demo-naming:1.2.0
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8082
+          resources:
+            requests:
+              cpu: 600m
+              memory: 512Mi
+            limits:
+              cpu: 1000m
+              memory: 1024Mi
+          startupProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: http
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            failureThreshold: 30
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: http
+            periodSeconds: 10
+            failureThreshold: 1
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: http
+            periodSeconds: 10
+            failureThreshold: 1

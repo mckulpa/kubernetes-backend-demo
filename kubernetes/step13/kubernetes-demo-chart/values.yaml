@@ -1,0 +1,5 @@
+global:
+  replicas: 1
+
+api-gateway:
+  replicas: 2
