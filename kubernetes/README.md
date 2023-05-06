@@ -1,3 +1,9 @@
+# Exercises
+
+Check what has changed between each step with this command:
+
+    diff -r -U 20 -x '*.md' ./step1 ./step2 | bat --language=diff
+
 # Minikube
 
 ## Installation

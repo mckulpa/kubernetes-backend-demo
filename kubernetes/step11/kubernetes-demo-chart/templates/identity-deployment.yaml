@@ -22,14 +22,14 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - name: identity-pod
-          image: mckulpa/k8s-demo-identity:1.0.0
+          image: mckulpa/k8s-demo-identity:1.2.0
           imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8081
           resources:
             requests:
-              cpu: 600m
+              cpu: 500m
               memory: 512Mi
             limits:
               cpu: 1000m

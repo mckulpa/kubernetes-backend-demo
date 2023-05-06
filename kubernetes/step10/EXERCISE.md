@@ -4,9 +4,9 @@ Prior to applying yaml files in this directory run
 
     popeye
 
-See what can be improved. This directory contains all the Popeye suggestions implemented.
+See what can be improved. This directory contains all the Popeye suggestions implemented. See what has changed with below command:
 
-    diff -U 20 -x '*.md' ../step8 . | bat --language=diff
+    diff -r -U 20 -x '*.md' ../step8 . | bat --language=diff
 
 Verify everything is still working
 

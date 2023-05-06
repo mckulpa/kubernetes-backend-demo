@@ -60,4 +60,4 @@ Notice almost all Charts are deprecated
 
 Notice Chart Version did not change
 Notice Revision changes with each upgrade even when nothing changes, and we rerun the command
-Notice App Version does not have to be in line with container image versions used
+Notice App Version in theory does not have to be in line with container image versions used, it is purely informational

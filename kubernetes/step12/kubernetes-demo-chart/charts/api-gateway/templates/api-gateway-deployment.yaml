@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: identity-deploy
+  name: api-gateway-deploy
   labels:
-    app: identity
+    app: api-gateway
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: identity
+      app: api-gateway
   template:
     metadata:
       labels:
-        app: identity
+        app: api-gateway
     spec:
       serviceAccountName: basic
       securityContext:
@@ -21,12 +21,19 @@ spec:
         runAsGroup: 10000
       terminationGracePeriodSeconds: 30
       containers:
-        - name: identity-pod
-          image: mckulpa/k8s-demo-identity:1.0.0
+        - name: api-gateway-pod
+          image: mckulpa/k8s-demo-api-gateway:1.2.0
           imagePullPolicy: Always
           ports:
             - name: http
-              containerPort: 8081
+              containerPort: 8080
+          env:
+            - name: SPRING_CONFIG_LOCATION
+              value: "/app/config/application.yaml"
+          volumeMounts:
+            - name: api-gateway-config-volume
+              mountPath: /app/config
+              readOnly: true
           resources:
             requests:
               cpu: 600m
@@ -53,3 +60,10 @@ spec:
               port: http
             periodSeconds: 10
             failureThreshold: 1
+      volumes:
+        - name: api-gateway-config-volume
+          configMap:
+            name: api-gateway-configmap
+            items:
+              - key: application.yaml
+                path: application.yaml

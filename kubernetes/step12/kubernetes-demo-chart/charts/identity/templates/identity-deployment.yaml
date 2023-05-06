@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: naming-deploy
+  name: identity-deploy
   labels:
-    app: naming
+    app: identity
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: naming
+      app: identity
   template:
     metadata:
       labels:
-        app: naming
+        app: identity
     spec:
       serviceAccountName: basic
       securityContext:
@@ -21,12 +21,12 @@ spec:
         runAsGroup: 10000
       terminationGracePeriodSeconds: 30
       containers:
-        - name: naming-pod
-          image: mckulpa/k8s-demo-naming:1.0.0
+        - name: identity-pod
+          image: mckulpa/k8s-demo-identity:1.2.0
           imagePullPolicy: Always
           ports:
             - name: http
-              containerPort: 8082
+              containerPort: 8081
           resources:
             requests:
               cpu: 600m
