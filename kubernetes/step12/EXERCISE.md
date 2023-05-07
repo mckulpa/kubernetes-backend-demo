@@ -10,5 +10,7 @@ helm install kubernetes-demo kubernetes-demo-chart
 Notice what happens when you try to install the same Chart multiple times with different name
 ```bash
 helm install kubernetes-demo kubernetes-demo-chart
+```
+```bash
 helm install kubernetes-demo-2 kubernetes-demo-chart 
 ```

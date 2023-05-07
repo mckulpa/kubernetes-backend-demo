@@ -3,6 +3,8 @@
 Preview before installing
 ```bash
 helm template kubernetes-demo-chart
+```
+```bash
 helm install kubernetes-demo kubernetes-demo-chart --dry-run --debug 
 ```
 
@@ -25,7 +27,7 @@ and `containerPort: 8087` accessible by expression `{{ .Values.containerPort }}`
 
 Notice values may be also overridden from command line:
 ```bash
-    helm install kubernetes-demo kubernetes-demo-chart --set global.replicas=2
+helm install kubernetes-demo kubernetes-demo-chart --set global.replicas=2
 ```
 
 ## Other
