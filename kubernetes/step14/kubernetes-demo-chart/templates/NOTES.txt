@@ -1,0 +1,3 @@
+Test the service by calling:
+
+    curl -X POST localhost/{{ .Release.Name }}/v1/person

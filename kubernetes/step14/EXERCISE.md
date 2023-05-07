@@ -2,7 +2,7 @@
 
 Prefixing resource names with `{{ .Release.Name }}` allows us to have multiple instances of the system installed in one namespace.
 
-In order to reduce repetition and ease maintenance we can use definitions in `_helpers.tpl` file. Prefixing file name with `_` will prevent Helm from trying to run templating engine on them.
+In order to reduce repetition and ease maintenance we can use definitions in `_helpers.tpl` file. Prefixing file name with `_` will prevent Helm from creating a Kubernetes manifest out of it.
 
 Notice direct `{{ .Release.Name }}` usage on `ingress.yaml` as well as using a custom template definition (`{{ include "api-gateway.name" . }}`) in `api-gateway-deployment.yaml`.
 
@@ -15,6 +15,10 @@ Test both releases (notice release name was included in ingress path):
 
     curl -X POST localhost/dev/v1/person
     curl -X POST localhost/prod/v1/person
+
+Notice that we could have reused the same paths (without `dev` and `prod`) by specifying a distinct `host` field in
+Ingress `rules` instead, e.g. `{{ .Release.Name }}.kubernetes-demo.info`. For local environment this hostname would also
+have to be added to `/etc/hosts` file pointing to Minikube IP.
 
 ## Other
 
