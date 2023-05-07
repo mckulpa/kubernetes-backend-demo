@@ -23,7 +23,7 @@ subprojects {
 	}
 
 	group = "com.mckulpa.demo.kubernetes"
-	version = "1.2.0"
+	version = "1.3.0"
 	java.sourceCompatibility = JavaVersion.VERSION_17
 
 	ext["jakarta-servlet.version"] = "5.0.0" // fixes application startup issue on Jetty: https://stackoverflow.com/questions/74946784/java-lang-classnotfoundexception-jakarta-servlet-http-httpsessioncontext-with-s
