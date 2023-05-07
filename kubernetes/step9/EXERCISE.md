@@ -1,12 +1,15 @@
 # Ingress
 
 When using Minikube, ingress addon has to be enabled
+```bash
+minikube addons enable ingress
+```
 
-    minikube addons enable ingress
-
-    curl -X POST localhost/api-gateway/v1/person
-    curl -X POST localhost/identity/v1/uuid
-    curl -X POST localhost/naming/v1/lastname
+```bash
+curl -X POST localhost/api-gateway/v1/person
+curl -X POST localhost/identity/v1/uuid
+curl -X POST localhost/naming/v1/lastname
+```
 
 # Other
 

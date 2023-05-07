@@ -1,17 +1,19 @@
 # ConfigMap with Volume
 
 Give all the resources a few minutes to run and try to hit the `api-gateway`:
-
-    curl -X POST localhost:8180/v1/person
+```bash
+curl -X POST localhost:8180/v1/person
+```
 
 # Other
 
 Notice that this defines one ConfigMap entry with key `application.yaml` and multiline value
-
-    data:
-        application.yaml: |
-            external.identity.url: "http://identity-clusterip:8181/v1"
-            external.naming.url: "http://naming-clusterip:8182/v1"
+```yaml
+data:
+    application.yaml: |
+        external.identity.url: "http://identity-clusterip:8181/v1"
+        external.naming.url: "http://naming-clusterip:8182/v1"
+```
 
 Notice that (depends on how the docker image is built) additional properties locations may be passed to application
 using `spring.config.location`. As all Spring properties this can be set in multiple ways:

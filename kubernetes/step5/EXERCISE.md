@@ -4,17 +4,24 @@ After applying files in this directory open k9s on deployments and/or pods and c
 Apply and notice that a new pod is created and only after then an old one is removed making sure traffic can be handled at all times.
 
 Notice that Kubernetes tracks rollouts:
-
-    kubectl rollout history deployment/naming-deploy
+```bash
+kubectl rollout history deployment/naming-deploy
+```
 
 You can also roll back:
 
-    kubectl rollout undo deployment/naming-deploy
-    kubectl rollout undo deployment/naming-deploy --to-revision=2
+```bash
+kubectl rollout undo deployment/naming-deploy
+```
+```bash
+kubectl rollout undo deployment/naming-deploy --to-revision=2
+```
 
 Give all the resources a few minutes to run and try to hit the `api-gateway`:
 
-    curl -X POST localhost:8180/v1/person
+```bash
+curl -X POST localhost:8180/v1/person
+```
 
 You should see the following error:
 

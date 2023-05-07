@@ -2,35 +2,51 @@
 
 ## Repo and Hub
 
-    helm repo add stable https://charts.helm.sh/stable
-
-    helm search repo
+```bash
+helm repo add stable https://charts.helm.sh/stable
+```
+```bash
+helm search repo
+```
 
 Notice almost all Charts are deprecated
-
-    helm search hub sonarqube --list-repo-url
-
-    helm repo add sonarsource https://SonarSource.github.io/helm-chart-sonarqube
-
-    helm search repo sonarqube
-    
-    helm show chart sonarsource/sonarqube
-
-    helm install sonarqube sonarsource/sonarqube
-
-    helm list
-
-    kubectl get secret | grep sonarqube
-    
-    helm uninstall sonarqube
+```bash
+helm search hub sonarqube --list-repo-url
+```
+```bash
+helm repo add sonarsource https://SonarSource.github.io/helm-chart-sonarqube
+```
+```bash
+helm search repo sonarqube
+```
+```bash
+helm show chart sonarsource/sonarqube
+```
+```bash
+helm install sonarqube sonarsource/sonarqube
+```
+```bash
+helm list
+```
+```bash
+kubectl get secret | grep sonarqube
+```
+```bash
+helm uninstall sonarqube
+```
 
 ## Chart Install, Upgrade, Rollback
 
 ### Installing
-
-    helm install kubernetes-demo kubernetes-demo-chart
-    helm list
-    helm get manifest kubernetes-demo
+```bash
+helm install kubernetes-demo kubernetes-demo-chart
+```
+```bash
+helm list
+```
+```bash
+helm get manifest kubernetes-demo
+```
 
 ### Upgrading
 
@@ -42,19 +58,30 @@ Notice almost all Charts are deprecated
    * `mckulpa/k8s-demo-identity:1.0.0` -> `mckulpa/k8s-demo-identity:1.2.0`
    
 3. Run Upgrade and check results
+   ```bash
+   helm upgrade kubernetes-demo kubernetes-demo-chart
+   ```
+   ```bash
+   helm list
+   ```
+   ```bash
+   helm get manifest kubernetes-demo
+   ```
 
-       helm upgrade kubernetes-demo kubernetes-demo-chart
-       helm list
-       helm get manifest kubernetes-demo
 
 ### Rollback
 
-    helm history kubernetes-demo
-    helm rollback kubernetes-demo 1
+```bash
+helm history kubernetes-demo
+```
+```bash
+helm rollback kubernetes-demo 1
+```
 
 ### Uninstall
-
-    helm uninstall kubernetes-demo
+```bash
+helm uninstall kubernetes-demo
+```
 
 # Other
 

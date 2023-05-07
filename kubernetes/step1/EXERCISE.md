@@ -43,11 +43,17 @@ Try a few options - which ones do you think will work? Remember to update the IP
 
 Try a few options - which ones do you think will work? Remember to update the IP value to whatever the `naming` pod has been assigned.
 
-    curl --max-time 3 -v -X POST naming:8082/v1/lastname
-    curl --max-time 3 -v -X POST 10.244.1.105:8082/v1/lastname
-    curl --max-time 3 -v -X POST $(minikube ip):8082/v1/lastname
+```bash
+curl --max-time 3 -v -X POST naming:8082/v1/lastname
+```
+```bash
+curl --max-time 3 -v -X POST 10.244.1.105:8082/v1/lastname
+```
+```bash
+curl --max-time 3 -v -X POST $(minikube ip):8082/v1/lastname
+```
 
-Port forwarding
+Port forwarding is necessary.
 
 ### Pod removal
 
