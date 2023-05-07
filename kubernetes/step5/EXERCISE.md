@@ -1,4 +1,16 @@
-# More apps, Deployments and Services
+# Deployments
+
+After applying files in this directory open k9s on deployments and/or pods and change image version of `naming` deployment to `1.1.0` or `1.2.0`.
+Apply and notice that a new pod is created and only after then an old one is removed making sure traffic can be handled at all times.
+
+Notice that Kubernetes tracks rollouts:
+
+    kubectl rollout history deployment/naming-deploy
+
+You can also roll back:
+
+    kubectl rollout undo deployment/naming-deploy
+    kubectl rollout undo deployment/naming-deploy --to-revision=2
 
 Give all the resources a few minutes to run and try to hit the `api-gateway`:
 
@@ -21,5 +33,3 @@ Which `metadata.labels` must match the `selector.matchLabels`?
 Notice that services still work properly despite deployment having the same label as deployment. Traffic is routed to pods, not deployments.
 
 Notice ReplicaSet is automatically created along Pods and Deployment
-
-#TODO Deployment update and rollback 
