@@ -56,4 +56,4 @@ Notice that failed probes are stored as pod Events
 
 # Other
 
-Notice how rollouts (update image tag in a deployment and apply) change after adding the probes (in comparison to what was observed on step5).
+Notice how rollouts (update image tag in a deployment and apply) changed too after adding the probes (in comparison to what was observed on step5).
