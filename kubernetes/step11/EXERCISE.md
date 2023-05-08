@@ -50,12 +50,12 @@ helm get manifest kubernetes-demo
 
 ### Upgrading
 
-1. Change `appVersion` in `Chart.yaml` to `1.2.0`
-2. Change container image versions to `1.2.0` in all `template/*-deployment.yaml` files:
+1. Change `appVersion` in `Chart.yaml` to `1.3.0`
+2. Change container image versions to `1.3.0` in all `template/*-deployment.yaml` files:
 
-   * `mckulpa/k8s-demo-naming:1.0.0` -> `mckulpa/k8s-demo-naming:1.2.0`
-   * `mckulpa/k8s-demo-api-gateway:1.0.0` -> `mckulpa/k8s-demo-api-gateway:1.2.0`
-   * `mckulpa/k8s-demo-identity:1.0.0` -> `mckulpa/k8s-demo-identity:1.2.0`
+   * `mckulpa/k8s-demo-naming:1.2.0` -> `mckulpa/k8s-demo-naming:1.3.0`
+   * `mckulpa/k8s-demo-api-gateway:1.2.0` -> `mckulpa/k8s-demo-api-gateway:1.3.0`
+   * `mckulpa/k8s-demo-identity:1.2.0` -> `mckulpa/k8s-demo-identity:1.3.0`
    
 3. Run Upgrade and check results
    ```bash

@@ -1,5 +1,12 @@
 # Exercises
 
+Use the following images when doing exercises:
+* `api-gateway`: `mckulpa/k8s-demo-api-gateway`
+* `identity`: `mckulpa/k8s-demo-identity`
+* `naming`: `mckulpa/k8s-demo-naming`
+
+Use versions `1.2.0` and `1.3.0`. There is no difference between those versions, but they were released to allow testing of application updates.
+
 Check what has changed between each step with this command:
 
     diff -r -U 20 -x '*.md' ./step1 ./step2 | bat --language=diff
