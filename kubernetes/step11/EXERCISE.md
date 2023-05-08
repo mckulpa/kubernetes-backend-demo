@@ -85,6 +85,9 @@ helm uninstall kubernetes-demo
 
 # Other
 
-Notice Chart Version did not change
-Notice Revision changes with each upgrade even when nothing changes, and we rerun the command
-Notice App Version in theory does not have to be in line with container image versions used, it is purely informational
+Notice Chart Version did not change but Revision changes with each upgrade even when nothing changes, and we rerun the command.
+
+Notice App Version in theory does not have to be in line with container image versions used, it is purely informational.
+
+Notice Helm stores release configuration and history inside Kubernetes as Secrets and nothing has to be preinstalled on Kubernetes cluster for it to work.
+Before (Helm 2) there was an additional Tiller service running in the background and handling Helm commands using gRPC.
