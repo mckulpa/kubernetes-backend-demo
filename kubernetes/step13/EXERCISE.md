@@ -30,6 +30,18 @@ Notice values may be also overridden from command line:
 helm install kubernetes-demo kubernetes-demo-chart --set global.replicas=2
 ```
 
+## Azure Application Gateway Ingress
+
+Notice that ingress has been extended with additional configuration allowing it to be run on Azure depending on `api-gateway.cloud` value.
+```bash
+helm install kubernetes-demo kubernetes-demo-chart --set api-gateway.cloud=true
+```
+
+Test the service:
+```bash
+curl -X POST https://xapi.eun.dev.csi1.tescocloud.com/v1/person
+```
+
 ## Other
 
 Notice it is still not possible to install two instances of our system due to naming clashed

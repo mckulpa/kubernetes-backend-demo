@@ -2,9 +2,15 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ing
+{{- if .Values.cloud }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    appgw.ingress.kubernetes.io/ssl-redirect: "true"
+{{- end }}
 spec:
   rules:
-    - http:
+    - host: {{ if .Values.cloud }}xapi.eun.dev.csi1.tescocloud.com{{ else }}localhost{{ end }}
+      http:
         paths:
           - path: /
             pathType: Prefix
@@ -13,3 +19,9 @@ spec:
                 name: api-gateway-clusterip
                 port:
                   number: 8180
+{{- if .Values.cloud }}
+  tls:
+    - hosts:
+        - xapi.eun.dev.csi1.tescocloud.com
+      secretName: appgw-ssl-cert
+{{- end }}

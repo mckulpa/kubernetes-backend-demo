@@ -80,3 +80,6 @@ Please note that k9s has popeye integrated (type `:popeye` in k9s).
     az aks get-credentials --resource-group eun-dev-213-csi1-aksblue --name eun-dev-213-csi1-aksblue
     kubectl config use-context eun-dev-213-csi1-aksblue
     kubectl config set-context --current --namespace=devops-k8s-training
+
+Notice that many steps contain Ingress resource but only step13 has a configuration that can work with Azure 
+Application Gateway.
