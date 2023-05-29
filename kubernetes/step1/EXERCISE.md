@@ -4,40 +4,56 @@
 
 Look at the available contexts and make sure that you are using `minikube` context
 
-    kubectl config get-contexts
-    kubectl config current-context
-    kubectl config use-context minikube 
+```bash
+kubectl config get-contexts
+kubectl config current-context
+kubectl config use-context minikube 
+```
 
 See available nodes
 
-    kubectl get nodes
+```bash
+kubectl get nodes
+```
 
 Apply resources in current directory
 
-    kubectl apply -f .
+```bash
+kubectl apply -f .
+```
 
 See pods
 
-    kubectl get pods
-    kubectl get pods -o wide
+```bash
+kubectl get pods
+kubectl get pods -o wide
+```
 
 See logs
 
-    kubectl logs naming
+```bash
+kubectl logs naming
+```
 
 Delete resources in current directory
 
-    kubectl delete -f .
+```bash
+kubectl delete -f .
+```
 
 ### Calling app from within the cluster (by connecting to another pods shell)
 
-    kubectl exec --stdin --tty curl -- /bin/sh
+```bash
+kubectl exec --stdin --tty curl -- /bin/sh
+```
 
 Try a few options - which ones do you think will work? Remember to update the IP value to whatever the `naming` pod has been assigned.
 
-    curl -X POST naming:8082/v1/lastname
-    curl -X POST naming-ctr:8082/v1/lastname
-    curl -X POST 10.244.1.105:8082/v1/lastname
+```bash
+curl -X POST naming:8082/v1/lastname
+curl -X POST naming-ctr:8082/v1/lastname
+curl -X POST 10.244.1.105:8082/v1/lastname
+```
 
 ### Calling app from outside of cluster
 
