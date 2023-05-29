@@ -36,4 +36,4 @@ kubectl get service
 kubectl get nodes -o wide
 ```
 
-Notice EXTERNAL-IP is <none>
+Notice EXTERNAL-IP is `<none>`
