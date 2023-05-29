@@ -1,6 +1,6 @@
 # Helm - Umbrella Chart
 
-Notice apps are organized in subdirectories of a `charts` directory and you can install of them by installing the root Chart
+Notice apps are organized in subdirectories of a `charts` directory, and you can install all of them by installing the root Chart
 ```bash
 helm install kubernetes-demo kubernetes-demo-chart
 ```
