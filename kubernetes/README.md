@@ -58,6 +58,25 @@ Restart Minikube (stopping is not necessary)
 Above example will fix only `registry.k8s.io` registry, so you may want to repeat this for other registries you want to
 connect to (also change the default `5000` port to whatever port this registry is using).
 
+EDIT:
+
+Solution above has stopped working for me (I think I might have upgraded minikube version but not sure).
+
+```bash
+minikube delete
+minikube start --nodes 3 --insecure-registry registry.k8s.io 
+```
+
+Not sure if helped, I did not try deploying ingress (`kubectl apply -f ./step8`) as the warning was still present on startup.
+
+```bash
+minikube delete
+cp $HOME/.minikube/files/etc/docker/certs.d/registry.k8s.io:5000/my_company.pem $HOME/.minikube/certs
+minikube start --nodes 3 --embed-certs
+```
+
+And it worked (but warning is still visible on startup), not sure what ultimately helped.
+
 ## Installation of additional tools
 
     brew install k9s
