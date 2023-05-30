@@ -32,6 +32,11 @@ dependencies:
       repository: https://charts.bitnami.com/bitnami
 ```
 
+Build the dependency before running `helm install`:
+```bash
+helm dependency build kubernetes-demo-chart 
+```
+
 Notice `mongodb-13.10.2.tgz` was downloaded to `charts` directory.
 
 ## Other
