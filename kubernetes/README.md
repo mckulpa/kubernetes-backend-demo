@@ -79,26 +79,32 @@ And it worked (but warning is still visible on startup), not sure what ultimatel
 
 ## Installation of additional tools
 
-    brew install k9s
-    brew install stern
-    brew install derailed/popeye/popeye
-    brew install helm
+```bash
+brew install k9s
+brew install stern
+brew install derailed/popeye/popeye
+brew install helm
+```
 
 Please note that k9s has popeye integrated (type `:popeye` in k9s).
 
 ## Cluster deletion
 
-    minikube delete
+```bash
+minikube delete
+```
 
 # Azure
 
-    brew install azure-cli
-    brew install Azure/kubelogin/kubelogin
-    az login --tenant YOUR_TENANT_ID
-    az account set -s YOUR_SUBSCRIPTION
-    az aks get-credentials --resource-group eun-dev-213-csi1-aksblue --name eun-dev-213-csi1-aksblue
-    kubectl config use-context eun-dev-213-csi1-aksblue
-    kubectl config set-context --current --namespace=devops-k8s-training
+```bash
+brew install azure-cli
+brew install Azure/kubelogin/kubelogin
+az login --tenant YOUR_TENANT_ID
+az account set -s YOUR_SUBSCRIPTION
+az aks get-credentials --resource-group YOUR_RESOURCE_GROUP --name YOUR_RESOURCE_GROUP
+kubectl config use-context YOUR_RESOURCE_GROUP
+kubectl config set-context --current --namespace=YOUR_NAMESPACE
+```
 
 Notice that many steps contain Ingress resource but only step13 has a configuration that can work with Azure 
 Application Gateway.

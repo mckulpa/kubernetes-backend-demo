@@ -44,4 +44,4 @@ curl -X POST https://xapi.eun.dev.csi1.tescocloud.com/v1/person
 
 ## Other
 
-Notice it is still not possible to install two instances of our system due to naming clashed
+Notice it is still not possible to install two instances of our system due to naming clashes.
